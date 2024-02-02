@@ -34,15 +34,15 @@ def read_patch(file):
         try:
             output = ks.asm(handler)
         except KsError as e:
-            print "Error with Keystone ", e.message
+            print("Error with Keystone ", e.message)
             if e.get_asm_count() is not None:
-                print "asmcount = %u" % e.get_asm_count()
+                print("asmcount = %u" % e.get_asm_count())
             sys.exit(1)
         return ''.join(chr(x) for x in output[0])
 def hexdump(src, length=16):
     FILTER = ''.join([(len(repr(chr(x))) == 3) and chr(x) or '.' for x in range(256)])
     lines = []
-    for c in xrange(0, len(src), length):
+    for c in range(0, len(src), length):
         chars = src[c:c+length]
         hex = ' '.join(["%02x" % ord(x) for x in chars])
         printable = ''.join(["%s" % ((ord(x) <= 127 and FILTER[ord(x)]) or '.') for x in chars])
