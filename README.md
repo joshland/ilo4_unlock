@@ -20,11 +20,10 @@ Here is my setup for my Ubuntu 21.10 Live CD:
 sudo apt-add-repository universe
 sudo apt update
 sudo apt-get install python2-minimal git curl
-curl https://bootstrap.pypa.io/pip/2.7/get-pip.py --output get-pip.py && sudo python2 get-pip.py
-python2 -m pip install virtualenv
+python3 -m pip install virtualenv
 git clone --recurse-submodules https://github.com/kendallgoto/ilo4_unlock.git
 cd ilo4_unlock
-python2 -m virtualenv venv
+python3 -m virtualenv venv
 source venv/bin/activate
 pip install -r requirements.txt
 ```
